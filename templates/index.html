@@ -1,0 +1,22 @@
+<!--index.html-->
+
+<!--Embed the header.html template at this location-->
+{{ template "header.html" .}}
+
+  <!--Loop over the payload variable, which is the list of book-->
+  {{range .payload }}
+    <!--Create the link for the book based on its ID-->
+    <a href="/book/view/{{.id}}">
+      <!--Display the title of the book -->
+      <h2>{{.title}}</h2>
+    </a>
+    <!--Display the author of the book-->
+    <p>{{.author}}</p>
+    <a href="/book/delete/{{.id}}" class="btn btn-primary">Delete</a>
+
+{{end}}
+
+<!--Embed the footer.html template at this location-->
+{{ template "footer.html" .}}
+
+
